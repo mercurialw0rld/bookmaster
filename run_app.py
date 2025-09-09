@@ -16,7 +16,7 @@ def main():
         subprocess.run([
             sys.executable, "-m", "streamlit", "run", app_file,
             "--server.headless", "true",
-            "--server.port", "8501"
+            "--server.port", str(int(os.environ.get("PORT", 8501)))
         ], cwd=os.path.dirname(__file__))
     except KeyboardInterrupt:
         print("\n👋 Thanks for using Book Master!")

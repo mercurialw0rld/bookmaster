@@ -609,8 +609,8 @@ def process_pdf(uploaded_file):
         with open(temp_path, "wb") as f:
             f.write(uploaded_file.getvalue())
 
-        # Load and split PDF
-        loader = PyPDFLoader(file_path=temp_path)
+        # Load and split PDF using PyPDF2 backend
+        loader = PyPDFLoader(file_path=temp_path, extract_images=False)
         pages = loader.load_and_split()
 
         # Clean up temp file
